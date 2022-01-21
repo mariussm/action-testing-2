@@ -8,11 +8,11 @@ jobs:
     # environment: m365x912454.onmicrosoft.com
     uses: "mariussm/action-testing-2/.github/workflows/1 - template.yml@main"
     secrets:
-      password: "${{secrets.password}}"
+      #password: "${{secrets.password}}"
       clientsecret: "${{secrets.clientsecret}}"
       clientid: "${{secrets.clientid}}"
-      username: "${{secrets.username}}"
-      tenantid: "${{secrets.tenantid}}"
+      #username: "${{secrets.username}}"
+      #tenantid: "${{secrets.tenantid}}"
 
 on:
   push:

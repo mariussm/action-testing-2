@@ -17,12 +17,12 @@ on:
         required: true
       clientid:
         required: true
-      username:
-        required: true
-      password:
-        required: true
-      tenantid:
-        required: true
+      # username:
+      #   required: true
+      # password:
+      #   required: true
+      # tenantid:
+      #   required: true
 
 jobs:
   reusable_workflow_job:
