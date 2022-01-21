@@ -7,7 +7,7 @@ jobs:
     with:
       clientid: ${{secrets.clientid}}
       username: ${{secrets.username}}
-      username: ${{secrets.tenantid}}
+      tenantid: ${{secrets.tenantid}}
     secrets:
       password: ${{secrets.password}}
       clientsecret: ${{secrets.clientsecret}}
