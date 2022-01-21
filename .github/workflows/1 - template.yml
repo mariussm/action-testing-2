@@ -2,7 +2,7 @@ name: Template
 
 on:
   workflow_call:
-    # inputs:
+    inputs:
     #   clientid:
     #     required: true
     #     type: string
