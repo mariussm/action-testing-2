@@ -1,7 +1,7 @@
 name: "m365x912454.onmicrosoft.com - Intune"
 
 jobs:
-  call-template:
+  deploy:
     environment: m365x912454.onmicrosoft.com
     uses: "mariussm/action-testing-2/.github/workflows/1 - template.yml@main"
     with:
