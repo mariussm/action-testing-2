@@ -1,11 +1,14 @@
 name: "m365x912454.onmicrosoft.com - Intune"
 
+env:
+  tenantdomain: m365x912454.onmicrosoft.com
+
 jobs:
   deploy:
     # environment: m365x912454.onmicrosoft.com
     uses: "mariussm/action-testing-2/.github/workflows/1 - template.yml@main"
     with:
-      ENVIRONMENT: m365x912454.onmicrosoft.com
+      ENVIRONMENT: ${{ env.tenantdomain }}
     secrets:
       CLIENTSECRET: "${{ secrets.CLIENTSECRET }}"
       CLIENTID: "${{ secrets.CLIENTID }}"
