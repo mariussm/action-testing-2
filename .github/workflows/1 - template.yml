@@ -13,6 +13,10 @@ on:
         required: true
       USERNAME:
         required: true
+      TENANTID:
+        required: true
+      PASSWORD:
+        required: true
 
 jobs:
   reusable_workflow_job:
@@ -30,10 +34,10 @@ jobs:
       - name: Running variable tests
         env:
           CLIENTID: ${{ secrets.clientid }}
-          #PASSWORD: ${{ secrets.PASSWORD }}
+          PASSWORD: ${{ secrets.PASSWORD }}
           USERNAME: ${{ secrets.USERNAME }}
           CLIENTSECRET: ${{ secrets.clientsecret }}
-          #TENANTID: ${{ secrets.TENANTID }}
+          TENANTID: ${{ secrets.TENANTID }}
         run: |
           . "./Pipeline Scripts/Test-Variables.ps1"
         shell: pwsh
