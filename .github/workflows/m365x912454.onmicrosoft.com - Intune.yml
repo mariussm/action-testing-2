@@ -1,0 +1,20 @@
+name: "m365x912454.onmicrosoft.com - Intune"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: m365x912454.onmicrosoft.com
+    steps:
+      - name: call-template
+        uses: "mariussm/action-testing-2/.github/workflows/1 - template.yml@main"
+        with:
+          tenantid: ${{secrets.tenantid}}
+          clientid: ${{secrets.clientid}}
+        secrets:
+          clientsecret: ${{secrets.clientsecret}}
+          password: ${{secrets.password}}
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:

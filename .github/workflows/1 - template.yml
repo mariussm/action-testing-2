@@ -1,0 +1,38 @@
+name: Template
+
+on:
+  workflow_call:
+    inputs:
+      tenantid:
+        required: true
+        type: string
+      clientid:
+        required: true
+        type: string
+    secrets:
+      password:
+        required: true
+      clientsecret:
+        required: true
+
+jobs:
+  reusable_workflow_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Running pre-build tests
+        run: |
+          $directory = (Get-Item .).FullName
+          . "./Pipeline Scripts/Invoke-PreBuildTests.ps1" -Folder $directory
+        shell: pwsh
+      
+      - name: Running variable tests
+        env:
+          CLIENTID: ${{ input.clientid }}
+          PASSWORD: ${{ secrets.password }}
+          CLIENTSECRET: ${{ secrets.clientsecret }}
+          TENANTID: ${{ input.tenantid }}
+        run: |
+          . "./Pipeline Scripts/Test-Variables.ps1"
+        shell: pwsh
