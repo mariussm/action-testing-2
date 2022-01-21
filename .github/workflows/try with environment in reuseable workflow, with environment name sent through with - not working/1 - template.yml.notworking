@@ -3,23 +3,18 @@ name: Template
 on:
   workflow_call:
     inputs:
-      clientid:
-        required: true
-        type: string
-      username:
-        required: true
-        type: string
-      tenantid:
+      environment:
         required: true
         type: string
     secrets:
       clientsecret:
         required: true
-      password:
+      clientid:
         required: true
 
 jobs:
   reusable_workflow_job:
+    environment: ${{ inputs.environment }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -32,11 +27,11 @@ jobs:
       
       - name: Running variable tests
         env:
-          CLIENTID: ${{ inputs.clientid }}
+          CLIENTID: ${{ secrets.clientid }}
           PASSWORD: ${{ secrets.PASSWORD }}
-          USERNAME: ${{ inputs.USERNAME }}
+          USERNAME: ${{ secrets.USERNAME }}
           CLIENTSECRET: ${{ secrets.clientsecret }}
-          TENANTID: ${{ inputs.TENANTID }}
+          TENANTID: ${{ secrets.TENANTID }}
         run: |
           . "./Pipeline Scripts/Test-Variables.ps1"
         shell: pwsh
