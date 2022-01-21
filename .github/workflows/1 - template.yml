@@ -2,27 +2,11 @@ name: Template
 
 on:
   workflow_call:
-    inputs:
-    #   clientid:
-    #     required: true
-    #     type: string
-    #   username:
-    #     required: true
-    #     type: string
-    #   tenantid:
-    #     required: true
-    #     type: string
     secrets:
       clientsecret:
         required: true
       clientid:
         required: true
-      # username:
-      #   required: true
-      # password:
-      #   required: true
-      # tenantid:
-      #   required: true
 
 jobs:
   reusable_workflow_job:
