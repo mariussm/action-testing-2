@@ -6,11 +6,10 @@ on:
       environment:
         required: true
         type: string
-      clientid:
-        required: true
-        type: string
     secrets:
       clientsecret:
+        required: true
+      clientid:
         required: true
 
 jobs:
@@ -28,7 +27,7 @@ jobs:
       
       - name: Running variable tests
         env:
-          CLIENTID: ${{ inputs.clientid }}
+          CLIENTID: ${{ secrets.clientid }}
           PASSWORD: ${{ secrets.password }}
           CLIENTSECRET: ${{ secrets.clientsecret }}
           TENANTID: ${{ secrets.tenantid }}

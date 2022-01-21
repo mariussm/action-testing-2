@@ -5,9 +5,9 @@ jobs:
     uses: "mariussm/action-testing-2/.github/workflows/1 - template.yml@main"
     with:
       environment: m365x912454.onmicrosoft.com
-      clientid: ${{secrets.clientid}}
     secrets:
       clientsecret: ${{secrets.clientsecret}}
+      clientid: ${{secrets.clientid}}
 
 on:
   push:
