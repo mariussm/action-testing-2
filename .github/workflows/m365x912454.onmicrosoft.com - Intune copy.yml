@@ -1,0 +1,19 @@
+name: "m365x912454.onmicrosoft.com - Intune - copy"
+
+jobs:
+  deploy:
+    environment: m365x912454.onmicrosoft.com
+    #uses: "mariussm/action-testing-2/.github/workflows/1 - template.yml@main"
+    run: |
+      echo "${{secrets.tenantid}}"
+    #secrets:
+      #password: "${{secrets.password}}"
+      #clientsecret: "${{secrets.clientsecret}}"
+      #clientid: "${{secrets.clientid}}"
+      #username: "${{secrets.username}}"
+      #tenantid: "${{secrets.tenantid}}"
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
