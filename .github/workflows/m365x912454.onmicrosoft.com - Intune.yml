@@ -1,5 +1,8 @@
 name: "m365x912454.onmicrosoft.com - Intune"
 
+env:
+  tenantid: abc
+
 jobs:
   deploy:
     environment: m365x912454.onmicrosoft.com

@@ -15,7 +15,7 @@ on:
     secrets:
       clientsecret:
         required: true
-      password:
+      clientid:
         required: true
       username:
         required: true
