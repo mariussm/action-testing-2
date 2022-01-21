@@ -6,6 +6,9 @@ on:
       ENVIRONMENT:
         required: true
         type: string
+      CONFIGFILE:
+        required: true
+        type: string
     secrets:
       CLIENTSECRET:
         required: true
@@ -40,4 +43,17 @@ jobs:
           TENANTID: ${{ secrets.TENANTID }}
         run: |
           . "./Pipeline Scripts/Test-Variables.ps1"
+        shell: pwsh
+
+      - name: Read config file
+        run: |
+          $config = Get-Content ${{ inputs.CONFIGFILE }} | ConvertFrom-Json -Depth 10 -AsHashTable
+          $config.Keys | ForEach-Object {
+            "$($_)=$($config[$_])" >> $ENV:GITHUB_ENV
+          }
+        shell: pwsh
+
+      - name: Use a value from config
+        run: |
+          Write-Host ${{ env.testsetting }}
         shell: pwsh
