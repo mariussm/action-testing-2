@@ -2,20 +2,26 @@ name: Template
 
 on:
   workflow_call:
-    inputs:
-      clientid:
-        required: true
-        type: string
-      username:
-        required: true
-        type: string
-      tenantid:
-        required: true
-        type: string
+    # inputs:
+    #   clientid:
+    #     required: true
+    #     type: string
+    #   username:
+    #     required: true
+    #     type: string
+    #   tenantid:
+    #     required: true
+    #     type: string
     secrets:
       clientsecret:
         required: true
       password:
+        required: true
+      username:
+        required: true
+      password:
+        required: true
+      tenantid:
         required: true
 
 jobs:
@@ -32,11 +38,11 @@ jobs:
       
       - name: Running variable tests
         env:
-          CLIENTID: ${{ inputs.clientid }}
+          CLIENTID: ${{ secrets.clientid }}
           PASSWORD: ${{ secrets.PASSWORD }}
-          USERNAME: ${{ inputs.USERNAME }}
+          USERNAME: ${{ secrets.USERNAME }}
           CLIENTSECRET: ${{ secrets.clientsecret }}
-          TENANTID: ${{ inputs.TENANTID }}
+          TENANTID: ${{ secrets.TENANTID }}
         run: |
           . "./Pipeline Scripts/Test-Variables.ps1"
         shell: pwsh
