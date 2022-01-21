@@ -7,12 +7,11 @@ jobs:
     with:
       ENVIRONMENT: m365x912454.onmicrosoft.com
     secrets:
-      PASSWORD: "${{secrets.PASSWORD}}"
       clientsecret: "${{secrets.clientsecret}}"
       clientid: "${{secrets.clientid}}"
-      USERNAME: "${{secrets.USERNAME}}"
-      TENANTID: "${{secrets.TENANTID}}"
-
+      # USERNAME: "${{secrets.USERNAME}}"
+      # TENANTID: "${{secrets.TENANTID}}"
+      # PASSWORD: "${{secrets.PASSWORD}}"
 on:
   push:
     branches: [ main ]

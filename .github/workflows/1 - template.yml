@@ -12,11 +12,11 @@ on:
       clientid:
         required: true
       USERNAME:
-        required: true
+        required: false
       TENANTID:
-        required: true
+        required: false
       PASSWORD:
-        required: true
+        required: false
 
 jobs:
   reusable_workflow_job:
