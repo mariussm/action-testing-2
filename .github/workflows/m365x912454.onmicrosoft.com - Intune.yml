@@ -9,9 +9,9 @@ jobs:
     secrets:
       clientsecret: "${{secrets.clientsecret}}"
       clientid: "${{secrets.clientid}}"
-      # USERNAME: "${{secrets.USERNAME}}"
-      # TENANTID: "${{secrets.TENANTID}}"
-      # PASSWORD: "${{secrets.PASSWORD}}"
+      USERNAME: "${{secrets.USERNAME}}"
+      TENANTID: "${{secrets.TENANTID}}"
+      PASSWORD: "${{secrets.PASSWORD}}"
 on:
   push:
     branches: [ main ]
