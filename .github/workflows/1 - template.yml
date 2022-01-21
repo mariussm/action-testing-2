@@ -28,9 +28,10 @@ jobs:
       - name: Running variable tests
         env:
           CLIENTID: ${{ secrets.clientid }}
-          PASSWORD: ${{ secrets.password }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          USERNAME: ${{ secrets.USERNAME }}
           CLIENTSECRET: ${{ secrets.clientsecret }}
-          TENANTID: ${{ secrets.tenantid }}
+          TENANTID: ${{ secrets.TENANTID }}
         run: |
           . "./Pipeline Scripts/Test-Variables.ps1"
         shell: pwsh
