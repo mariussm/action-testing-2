@@ -4,11 +4,13 @@ jobs:
   deploy:
     # environment: m365x912454.onmicrosoft.com
     uses: "mariussm/action-testing-2/.github/workflows/1 - template.yml@main"
+    with:
+      ENVIRONMENT: m365x912454.onmicrosoft.com
     secrets:
       #password: "${{secrets.password}}"
       clientsecret: "${{secrets.clientsecret}}"
       clientid: "${{secrets.clientid}}"
-      #username: "${{secrets.username}}"
+      USERNAME: "${{secrets.USERNAME}}"
       #tenantid: "${{secrets.tenantid}}"
 
 on:
