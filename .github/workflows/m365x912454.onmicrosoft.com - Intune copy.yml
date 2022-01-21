@@ -3,6 +3,7 @@ name: "m365x912454.onmicrosoft.com - Intune - copy"
 jobs:
   deploy:
     environment: m365x912454.onmicrosoft.com
+    runs-on: ubuntu-latest
     #uses: "mariussm/action-testing-2/.github/workflows/1 - template.yml@main"
     steps:
       - name: something
