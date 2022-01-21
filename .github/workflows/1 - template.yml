@@ -30,8 +30,7 @@ jobs:
 
       - name: Running pre-build tests
         run: |
-          $directory = (Get-Item .).FullName
-          . "./Pipeline Scripts/Invoke-PreBuildTests.ps1" -Folder $directory
+          . "./Pipeline Scripts/Invoke-PreBuildTests.ps1" -Folder $pwd.Path
         shell: pwsh
       
       - name: Running variable tests
@@ -47,10 +46,12 @@ jobs:
 
       - name: Read config file
         run: |
-          $config = Get-Content ${{ inputs.CONFIGFILE }} | ConvertFrom-Json -Depth 10 -AsHashTable
-          $config.Keys | ForEach-Object {
-            "$($_)=$($config[$_])" >> $ENV:GITHUB_ENV
-          }
+          Get-Content ${{ inputs.CONFIGFILE }} | 
+            ConvertFrom-Json -Depth 10 -AsHashTable |
+            ForEach-Object {$_.GetEnumerator()} |
+            ForEach-Object {
+              "$($_.key)=$($_.value)" >> $ENV:GITHUB_ENV
+            }
         shell: pwsh
 
       - name: Use a value from config
