@@ -7,9 +7,9 @@ on:
         required: true
         type: string
     secrets:
-      clientsecret:
+      CLIENTSECRET:
         required: true
-      clientid:
+      CLIENTID:
         required: true
       USERNAME:
         required: false
@@ -20,7 +20,7 @@ on:
 
 jobs:
   reusable_workflow_job:
-    # environment: ${{ inputs.ENVIRONMENT }}
+    environment: ${{ inputs.ENVIRONMENT }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -33,10 +33,10 @@ jobs:
       
       - name: Running variable tests
         env:
-          CLIENTID: ${{ secrets.clientid }}
+          CLIENTID: ${{ secrets.CLIENTID }}
           PASSWORD: ${{ secrets.PASSWORD }}
           USERNAME: ${{ secrets.USERNAME }}
-          CLIENTSECRET: ${{ secrets.clientsecret }}
+          CLIENTSECRET: ${{ secrets.CLIENTSECRET }}
           TENANTID: ${{ secrets.TENANTID }}
         run: |
           . "./Pipeline Scripts/Test-Variables.ps1"
